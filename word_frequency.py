@@ -36,12 +36,13 @@ while not is_sentence(user_sentence):
     print("This does not meet the criteria for a sentence.")
     user_sentence = input("Enter a sentence: ")
 
+words = user_sentence.split()
 
-words = [re.sub(r'[^\w]', '', w).lower() for w in user_sentence.split()]
 uniqueWords = []
 frequencyOfWords = []
 
 for word in words:
+    words = word.strip(",.!?").lower()
     if word in uniqueWords:
         index = uniqueWords.index(word)
         frequencyOfWords[index] += 1
