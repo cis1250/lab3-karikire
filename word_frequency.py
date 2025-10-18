@@ -54,4 +54,4 @@ for word in words:
 for i in range(len(uniqueWords)):
     print(f"{uniqueWords[i]}: {frequencyOfWords[i]}")
 
-    
+# You are not stripping the function of punctuation. -1
