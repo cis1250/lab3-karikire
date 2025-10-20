@@ -29,29 +29,48 @@ def is_sentence(text):
 
     return True
 
-user_sentence = input("Enter a sentence: ")
 
-#My code starts here
-while not is_sentence(user_sentence):
-    print("This does not meet the criteria for a sentence.")
-    user_sentence = input("Enter a sentence: ")
+#Gets the sentence from user and checks if it meets the criteria
+def get_sentence():
+    sentence = input("Enter a sentence: ")
+    while not is_sentence(sentence):
+        print("This does not meet the criteria for a sentence.")
+        sentence = input("Enter a sentence: ")
+    return sentence
 
-words = user_sentence.split()
+#Calculations for how many unique words and frequencies
+def calculate_frequencies(sentence):
+    words = sentence.split()
+    unique_words = []
+    frequencies = []
 
-uniqueWords = []
-frequencyOfWords = []
+#Strips the function of punctuation
+    for word in words:
+        clean_word = word.strip(",.!?").lower()
 
-for word in words:
-    words = word.strip(",.!?").lower()
-    if word in uniqueWords:
-        index = uniqueWords.index(word)
-        frequencyOfWords[index] += 1
-    else:
-        uniqueWords.append(word)
-        frequencyOfWords.append(1)
+        if clean_word in unique_words:
+            index = unique_words.index(clean_word)
+            frequencies[index] += 1
+        else:
+            unique_words.append(clean_word)
+            frequencies.append(1)
+
+    return unique_words, frequencies
+
+#Go through the range of words and will give main the ooutput
+def print_frequencies(words, frequencies):
+    print("\nWord frequencies:")
+    for i in range(len(words)):
+        print(f"{words[i]}: {frequencies[i]}")
+
+#Runs program output
+def main():
+    sentence = get_sentence()
+    words, freqs = calculate_frequencies(sentence)
+    print_frequencies(words, freqs)
 
 
-for i in range(len(uniqueWords)):
-    print(f"{uniqueWords[i]}: {frequencyOfWords[i]}")
+if __name__ == "__main__":
+    main()
 
-# You are not stripping the function of punctuation. -1
+
