@@ -4,7 +4,7 @@
 # TODO: (Read detailed instructions in the Readme file)
 # Prompt the user for the number of terms.
 # Validate that the input is a positive integer.
-# Use a for loop to print the Fibonacci sequence up to that many terms.
+# Use a for loop to print the Fibonacci sequence up to that many terms.1
 
 #Here I get the user input and make sure its a whole number
 def get_num_terms():
